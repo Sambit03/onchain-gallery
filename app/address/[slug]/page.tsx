@@ -104,10 +104,10 @@ export default function OnchainGallery({
 
       {selectedNFT && (
         <div className="fixed inset-0 bg-opacity-50 backdrop-blur-md flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded-lg w-[90%] max-w-lg relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-white p-4 rounded-lg w-[80%] max-w-lg relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedNFT(null)}
-              className="absolute top-0.5 right-1 text-xl text-gray-500 hover:text-black"
+              className="absolute top-0.5 right-1 text-md text-gray-500 hover:text-black"
             >
               ✕
             </button>
