@@ -22,7 +22,7 @@ export default function HomePage() {
     <main className="flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
       <h1 className="text-4xl font-extrabold mb-4">NFT Explorer</h1>
       <p className="text-lg mb-8 text-gray-300">
-        Enter an ENS name or Ethereum address to view NFTs
+        Explore your NFTs on every network.
       </p>
 
       <form
@@ -34,7 +34,7 @@ export default function HomePage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="e.g. vitalik.eth or 0x..."
-          className="flex-1 px-4 py-3 rounded-md text-black w-full sm:w-auto"
+          className="flex-1 px-4 py-3 rounded-md text-white w-full sm:w-auto border border-gray-600 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
         />
         <button
           type="submit"

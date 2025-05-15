@@ -2,6 +2,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import LoadingAnimation from "@/components/loadingAnimation";
 
 export default function OnchainGallery() {
   const [nfts, setNfts] = useState<any[]>([]);
@@ -72,7 +73,7 @@ export default function OnchainGallery() {
       </h1>
 
       {nfts.length === 0 ? (
-        <p className="text-center mt-6">Loading NFTs...</p>
+        <LoadingAnimation />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-8">
           {nfts.map((nft, index) => (
