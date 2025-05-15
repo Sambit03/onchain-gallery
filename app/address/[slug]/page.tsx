@@ -4,9 +4,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import LoadingAnimation from "@/components/loadingAnimation";
 
-export default function OnchainGallery() {
+export default function OnchainGallery({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const [nfts, setNfts] = useState<any[]>([]);
   const [selectedNFT, setSelectedNFT] = useState<any | null>(null);
+  const walletAddress = params.slug;
 
   const fetchNFTs = async (walletAddress: string) => {
     const API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
@@ -63,7 +68,7 @@ export default function OnchainGallery() {
   };
 
   useEffect(() => {
-    fetchNFTs("0xf95f8038eb7874cde88a0a9a8270fcc94f5c226e");
+    fetchNFTs(walletAddress);
   }, []);
 
   return (
@@ -107,13 +112,18 @@ export default function OnchainGallery() {
               ✕
             </button>
             <Image
-              src={selectedNFT.media?.[0]?.gateway || "/placeholder.png"}
+              src={
+                selectedNFT.media?.[0]?.gateway ||
+                selectedNFT.media?.[0]?.thumbnail
+              }
               alt={selectedNFT.title || "NFT Image"}
               width={500}
               height={500}
               className="w-full max-h-[60vh] object-contain rounded"
             />
-            <h2 className="text-lg font-semibold mt-4">{selectedNFT.title}</h2>
+            <h2 className="text-lg text-cyan-400 font-semibold mt-4">
+              {selectedNFT.title}
+            </h2>
             <p className="mt-2 text-sm text-gray-600">
               {selectedNFT.description || "No description available."}
             </p>
